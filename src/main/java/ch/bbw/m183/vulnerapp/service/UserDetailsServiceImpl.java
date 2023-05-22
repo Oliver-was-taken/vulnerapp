@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserRepository userRepository;

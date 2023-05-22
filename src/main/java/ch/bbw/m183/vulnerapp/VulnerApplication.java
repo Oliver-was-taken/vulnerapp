@@ -14,9 +14,4 @@ public class VulnerApplication {
         SpringApplication.run(VulnerApplication.class, args);
     }
 
-    @Bean
-    public PasswordEncoder encoder() {
-        return new BCryptPasswordEncoder();
-    }
-
 }
