@@ -22,7 +22,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String name = authentication.getName();
-        String password = authentication.getCredentials().toString(); //TODO: implement password checker
+        String password = authentication.getCredentials().toString();
 
         UserDetails user = userDetailsService.loadUserByUsername(name);
         if (user == null || !new BCryptPasswordEncoder().matches(password, user.getPassword())) {
