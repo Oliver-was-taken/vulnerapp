@@ -1,7 +1,7 @@
 package ch.bbw.m183.vulnerapp.service;
 
 import ch.bbw.m183.vulnerapp.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
