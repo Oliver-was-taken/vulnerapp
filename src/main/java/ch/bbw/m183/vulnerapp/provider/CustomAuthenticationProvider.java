@@ -8,6 +8,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String password = authentication.getCredentials().toString(); //TODO: implement password checker
 
         UserDetails user = userDetailsService.loadUserByUsername(name);
-        if (user == null) {
+        if (user == null || !new BCryptPasswordEncoder().matches(password, user.getPassword())) {
             throw new BadCredentialsException("invalid_username_or_pass");
         }
 
