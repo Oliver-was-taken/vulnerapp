@@ -36,6 +36,7 @@ public class BasicConfiguration {
                 .csrf()
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
+                .authenticationProvider(provider)
                 .build();
     }
 
