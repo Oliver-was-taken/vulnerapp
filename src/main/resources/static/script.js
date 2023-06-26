@@ -12,28 +12,37 @@ function onLoginSubmit(event) {
     fetch("/api/user/whoami", {
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Basic " + btoa(username + ":" + password),
+            "Authorization": "Basic " + btoa(username + ":" + password)
         },
     }).then(filterOk)
         .then(response => response.json())
         .then(user => window.sessionStorage.setItem("fullname", user.fullname))
-        .then(() => loginCheck());
+        .then(() => loginCheck())
+        .then(() => sessionStorage.setItem('credentials',`${username}:${password}`))
 }
 
 function onLogoutSubmit(event) {
     event.preventDefault();
     fetch("/logout")
         .then(() => window.sessionStorage.removeItem("fullname"))
+        .then(() => window.sessionStorage.removeItem("credentials"))
         .then(() => loginCheck());
 }
 
 function onBlogSubmit(event) {
     const data = {"title": event.target[0].value, "body": event.target[1].value}
     event.preventDefault();
+    const credentials = sessionStorage.getItem('credentials')
+    const value = `; ${document.cookie}`
+
+    if(!credentials)
+        return null;
     fetch("/api/blog", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            "Authorization": "Basic " + btoa(credentials),
+            "X-XSRF-TOKEN": value.split(`; ${'XSRF-TOKEN'}=`)[1]
         },
         body: JSON.stringify(data),
     }).then(filterOk)

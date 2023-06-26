@@ -4,8 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -16,7 +16,10 @@ import java.util.UUID;
 @Setter
 @Accessors(chain = true)
 @Entity
+@Builder
 @Table(name = "blogs")
+@NoArgsConstructor
+@AllArgsConstructor
 public class BlogEntity {
 
     @Id
@@ -26,9 +29,11 @@ public class BlogEntity {
     @CreationTimestamp
     LocalDateTime createdAt;
 
+    @NotBlank(message = "Title is mandatory")
     @Column(columnDefinition = "text")
     String title;
 
+    @NotBlank(message = "Text-body is mandatory")
     @Column(columnDefinition = "text")
     String body;
 }
