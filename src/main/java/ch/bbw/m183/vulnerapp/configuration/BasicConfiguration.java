@@ -35,7 +35,7 @@ public class BasicConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/api/blog").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/blog").hasAnyAuthority("ADMIN", "USER")
-                        .requestMatchers("/api/admin123").hasAuthority("ADMIN")
+                        .requestMatchers("/api/admin123/**").hasAuthority("ADMIN")
                         .requestMatchers("/api/**").authenticated()
                         .anyRequest().permitAll())
                 .csrf((csrf) -> csrf
@@ -48,5 +48,4 @@ public class BasicConfiguration {
 
         return httpSecurity.build();
     }
-
 }
