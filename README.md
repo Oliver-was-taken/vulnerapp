@@ -37,12 +37,12 @@ kann der Server die Anfrage ablehnen und vor CSRF-Angriffen schützen.
 
 3. ***Content Security Policy (CSP):*** Um Cross-Site Scripting-Angriffe zu verhindern, habe ich eine Content Security Policy implementiert. Diese Richtlinie legt Einschränkungen für die Ausführung von Skripten und den Zugriff auf Ressourcen fest. Durch eine restriktive Konfiguration der CSP wird die Anfälligkeit für XSS-Angriffe reduziert und die Sicherheit meiner Applikation erhöht.
 
-4. ***XSS-Schutz (Cross-Site Scripting):*** Ich habe spezifische Maßnahmen ergriffen, um XSS-Angriffe zu verhindern. Durch die Aktivierung des XSS-Schutzes in den Webbrowsern können potenziell schädliche Skripte blockiert oder entfernt werden. Dies minimiert das Risiko von XSS-Angriffen und gewährleistet die Sicherheit der Benutzerdaten.
+4. ***XSS-Schutz (Cross-Site Scripting):*** Ich habe spezifische Massnahmen ergriffen, um XSS-Angriffe zu verhindern. Durch die Aktivierung des XSS-Schutzes in den Webbrowsern können potenziell schädliche Skripte blockiert oder entfernt werden. Dies minimiert das Risiko von XSS-Angriffen und gewährleistet die Sicherheit der Benutzerdaten.
 
-Neben den bereits implementierten Sicherheitsmechanismen gibt es weitere sinnvolle Maßnahmen, die ich in Betracht ziehen könnte:
+Neben den bereits implementierten Sicherheitsmechanismen gibt es weitere sinnvolle Massnahmen, die ich in Betracht ziehen könnte:
 
     
-1. ***Password Rules:*** Ich könnte Richtlinien für die Passwortkomplexität einführen, um die Sicherheit der Benutzerkonten weiter zu stärken. Dazu könnte ich Mindestlängen, die Verwendung von Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen sowie das regelmäßige Aktualisieren der Passwörter empfehlen. Starke Passwörter erschweren es potenziellen Angreifern, Konten zu kompromittieren.
+1. ***Password Rules:*** Ich könnte Richtlinien für die Passwortkomplexität einführen, um die Sicherheit der Benutzerkonten weiter zu stärken. Dazu könnte ich Mindestlängen, die Verwendung von Gross- und Kleinbuchstaben, Zahlen und Sonderzeichen sowie das regelmässige Aktualisieren der Passwörter empfehlen. Starke Passwörter erschweren es potenziellen Angreifern, Konten zu kompromittieren.
 
 2. ***Input Validation:*** Eine gründliche Validierung der Benutzereingaben ist entscheidend, um potenzielle Sicherheitslücken zu vermeiden. Ich könnte die Eingaben auf zulässige Zeichen, Längenbeschränkungen und das Entfernen potenziell schädlicher Inhalte prüfen. Durch eine effektive Eingabevalidierung kann ich Angriffe wie SQL-Injection oder Code-Injection wirksam verhindern.
 
